@@ -1,0 +1,59 @@
+body{
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.Grid{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    max-width: 350px;
+    list-style-type: none;
+}
+.Grid li{
+    width: 60px;
+    height: 60px;
+    margin: 3px;
+    background-color: black;
+    cursor: pointer;
+}
+.Title{
+    text-align: center;
+    --Titlecolor1:rgb(44, 97, 195);
+    --Titlecolor2:rgb(248, 0, 0);
+}
+.Title span:nth-child(1){
+    color: white;
+    text-shadow: 1px 1px 1px var(--Titlecolor1),
+                1px -1px 1px var(--Titlecolor1),
+                -1px 1px 1px var(--Titlecolor1),
+                -1px -1px 1px var(--Titlecolor1);
+    animation: text-anime 2s infinite;
+    transition: 1s;
+}
+.Title span:nth-child(2){
+    color: white;
+    text-shadow: 1px 1px 1px var(--Titlecolor2),
+                1px -1px 1px var(--Titlecolor2),
+                -1px 1px 1px var(--Titlecolor2),
+                -1px -1px 1px var(--Titlecolor2);
+    animation: text-anime 3s infinite;
+}
+.Grid li.active{
+    background-color:#48ca58;
+}
+@keyframes text-anime{
+    0%{
+        --Titlecolor1:rgb(44, 97, 195);
+        --Titlecolor2:rgb(248, 0, 0);
+    }
+    100%{
+        --Titlecolor1:rgb(248, 0, 0);
+        --Titlecolor2:rgb(44, 97, 195);
+    }
+}
