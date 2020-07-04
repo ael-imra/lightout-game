@@ -19,22 +19,27 @@ class Grid extends Component{
         return(array);
     }
     randomItems(array){
-        let rand = Math.floor(Math.random() * 10)+1;
-        for(let i = 0;i <= rand;i++)
-        {
-            const r1 = Math.floor(Math.random() * 5);
-            const r2 = Math.floor(Math.random() * 5);
-            if (array[r1][r2] === false)
-                array[r1][r2] = true;
-            else
-                i--;
-        }
+        // let rand = Math.floor(Math.random() * 10)+1;
+        // for(let i = 0;i <= rand;i++)
+        // {
+        //     const r1 = Math.floor(Math.random() * 5);
+        //     const r2 = Math.floor(Math.random() * 5);
+        //     if (array[r1][r2] === false)
+        //         array[r1][r2] = true;
+        //     else
+        //         i--;
+        // }
+        array[0][1] = true;
+        array[1][0] = true;
+        array[1][1] = true;
+        array[1][2] = true;
+        array[2][1] = true;
         return(array);
     }
     isWin(array){
         for(let arr of array)
             for(let val of arr)
-                if(val == false)
+                if(val === true)
                     return (false);
         return (true);
     }
@@ -54,6 +59,7 @@ class Grid extends Component{
             if (newArray[key1 - 1] != null)
                 newArray[key1 - 1][key2] = (newArray[key1 - 1][key2] === false) ? true : false;
         }
+        console.log(newArray)
         this.setState({
             items:newArray,
             win:this.isWin(newArray)
