@@ -16,7 +16,6 @@ class Grid extends Component{
             for(let j = 0;j < 5; j++)
                 array[i][j] = false;
         }
-        console.log(array);
         return(array);
     }
     randomItems(array){
@@ -60,7 +59,20 @@ class Grid extends Component{
             win:this.isWin(newArray)
         });
     }
+    resetGame(){
+        this.setState({
+            items:this.randomItems(this.init()),
+            win:false
+        });
+    }
     render(){
+        let win_div  = <div className="div_win">
+                        <Win/>
+                        <button onClick={()=>this.resetGame()}>Try Again!</button>
+                    </div>;
+                    console.log(this.state.win);
+        if (this.state.win)
+            return win_div;
         return (
             <ul className='Grid'>
             {
@@ -74,7 +86,18 @@ class Grid extends Component{
                         return (<li className={active} key={key} data-key={key} onClick={(event)=>{this.clickLighOut(event)}}></li>);
                     })))
             }
-            </ul>)
+            </ul>
+        );
+    }
+}
+class Win extends Component{
+    render(){
+        return (
+            <div className='Win'>
+                <h2>Congratulation you WIN!</h2>
+                <img src="https://media.giphy.com/media/1GTZA4flUzQI0/giphy.gif" alt="image"/>
+            </div>
+        );
     }
 }
 class Title extends Component{

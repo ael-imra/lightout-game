@@ -47,6 +47,32 @@ body{
 .Grid li.active{
     background-color:#48ca58;
 }
+.Win{
+    margin:10px
+}
+.Win h2{
+    color: #48ca58;
+    text-align: center;
+}
+.Win img{
+    max-width: 350px;
+}
+.div_win{
+    background-color: black;
+    border-radius: 25px;
+    padding: 15px;
+}
+.div_win button{
+    border-radius: 25px;
+    border: none;
+    width: 150px;
+    height: 45px;
+    font-size: 16px;
+    background-color: #48ca58;
+    margin: 0 auto;
+    display: block;
+    outline: none;
+}
 @keyframes text-anime{
     0%{
         --Titlecolor1:rgb(44, 97, 195);
