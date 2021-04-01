@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 class Grid extends Component{
-    constructor(){
+    constructor() {
         super();
         this.state = {
             items:this.randomItems(this.init()),
             win:false
         }
     }
-    init(){
+    init() {
         let array = new Array(5);
         for(let i = 0;i < 5 ;i++)
         {
@@ -18,7 +18,7 @@ class Grid extends Component{
         }
         return(array);
     }
-    randomItems(array){
+    randomItems(array) {
         let rand = Math.floor(Math.random() * 10)+1;
         for(let i = 0;i <= rand;i++)
         {
@@ -31,28 +31,31 @@ class Grid extends Component{
         }
         return(array);
     }
-    isWin(array){
+    isWin(array) {
         for(let arr of array)
             for(let val of arr)
                 if(val === true)
                     return (false);
         return (true);
     }
-    clickLighOut(event){
+    clickLighOut(event) {
         let [key1,key2] = event.target.getAttribute('data-key').split(';');
         [key1,key2] = [parseInt(key1),parseInt(key2)];
         let newArray = this.state.items;
-        if (newArray[key1][key2] != null)
-        {
-            newArray[key1][key2] = (newArray[key1][key2] === false) ? true : false;
-            if (newArray[key1][key2 + 1] != null)
-                newArray[key1][key2 + 1] = (newArray[key1][key2 + 1] === false) ? true : false;
-            if (newArray[key1][key2 - 1] != null)
-                newArray[key1][key2 - 1] = (newArray[key1][key2 - 1] === false) ? true : false;
-            if (newArray[key1 + 1] != null)
-                newArray[key1 + 1][key2] = (newArray[key1 + 1][key2] === false) ? true : false;
-            if (newArray[key1 - 1] != null)
-                newArray[key1 - 1][key2] = (newArray[key1 - 1][key2] === false) ? true : false;
+        if (newArray[key1][key2] != null) {
+            newArray[key1][key2] = (newArray[key1][key2] === false);
+            if (newArray[key1][key2 + 1] != null) {
+                newArray[key1][key2 + 1] = (newArray[key1][key2 + 1] === false);
+            }
+            if (newArray[key1][key2 - 1] != null) {
+                newArray[key1][key2 - 1] = (newArray[key1][key2 - 1] === false);
+            }
+            if (newArray[key1 + 1] != null) {
+                newArray[key1 + 1][key2] = (newArray[key1 + 1][key2] === false);
+            }
+            if (newArray[key1 - 1] != null) {
+                newArray[key1 - 1][key2] = (newArray[key1 - 1][key2] === false);
+            }
         }
         this.setState({
             items:newArray,
@@ -100,10 +103,10 @@ class Win extends Component{
     }
 }
 class Title extends Component{
-    constructor(){
+    constructor() {
         super();
     }
-    render(){
+    render() {
         return (
             <h1 className='Title'>
                 <span>Light</span>
@@ -113,7 +116,7 @@ class Title extends Component{
     }
 }
 class App extends Component{
-    constructor(){
+    constructor() {
         super();
     }
     render(){
